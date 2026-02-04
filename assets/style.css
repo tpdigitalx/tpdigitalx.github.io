@@ -284,14 +284,7 @@ a{color:inherit;text-decoration:none}
   .pills{gap:8px}
   .pill{padding:7px 10px}
 }
-/* ===== GLOWING BRAND TEXT (FIXED) ===== */
-.brand > div{
-  color: #eaf0ff;
-  text-shadow:
-    0 0 6px rgba(77,124,255,0.6),
-    0 0 14px rgba(77,124,255,0.45),
-    0 0 28px rgba(77,124,255,0.25);
-}
+
 
 /* Smooth glow animation */
 @keyframes brandGlow {
