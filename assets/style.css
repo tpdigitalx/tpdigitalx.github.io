@@ -141,3 +141,50 @@ a{color:inherit;text-decoration:none}
   height:22px;
   fill:#eaf0ff;
 }
+
+/* ---------- Responsive fixes ---------- */
+@media (max-width: 860px){
+  .nav-inner{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .menu{
+    width: 100%;
+    justify-content: flex-start;
+    gap: 8px;
+  }
+  .menu a{
+    padding: 10px 10px;
+  }
+}
+
+@media (max-width: 860px){
+  .container{ padding: 16px; }
+
+  .hero{ padding: 28px 0 12px 0; }
+  .hero h1{ font-size: 32px; }
+  .hero p{ font-size: 16px; }
+
+  .grid{ gap: 12px; }
+  .card{ padding: 16px; border-radius: 16px; }
+
+  /* Force all cards full width on mobile */
+  .cols-2 .card,
+  .cols-3 .card{
+    grid-column: span 12 !important;
+  }
+
+  /* Pills wrap nicely */
+  .pills{ gap: 8px; }
+  .pill{ padding: 7px 10px; }
+}
+
+@media (max-width: 860px){
+  .social-icons{
+    flex-wrap: wrap;
+  }
+  .social-icons a{
+    width: 46px;
+    height: 46px;
+  }
+}
