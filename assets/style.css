@@ -304,3 +304,12 @@ a{color:inherit;text-decoration:none}
   animation: brandGlow 2.8s ease-in-out infinite alternate;
 }
 
+.kpis{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.kpi{
+  padding:10px 12px;
+  border-radius:14px;
+  border:1px solid var(--border);
+  background:rgba(255,255,255,.02);
+  color:var(--muted);
+}
+.kpi b{color:var(--text)}
