@@ -5,145 +5,159 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Projects | TP Digital X</title>
   <meta name="description" content="SEO, GBP and marketing projects and case studies by TP Digital X." />
-  <link rel="stylesheet" href="assets/style.css" />
-</head>
-<body>
-<div class="nav" id="siteNav">
-  <div class="container nav-inner">
 
-    <div class="brand">
-      <div>TP Digital X</div>
-      <span class="badge">Portfolio</span>
+  <!-- cache-bust -->
+  <link rel="stylesheet" href="assets/style.css?v=30" />
+</head>
+
+<body>
+
+  <!-- ================= NAV (HAMBURGER) ================= -->
+  <div class="nav" id="siteNav">
+    <div class="container nav-inner">
+
+      <div class="brand">
+        <div>TP Digital X</div>
+        <span class="badge">Portfolio</span>
+      </div>
+
+      <!-- Desktop menu -->
+      <div class="menu" aria-label="Primary navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="skills.html">Skills</a>
+        <a href="projects.html" class="active">Projects</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <!-- Mobile hamburger -->
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <span class="burger" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+      </button>
     </div>
 
-    <!-- Desktop menu -->
-    <div class="menu" aria-label="Primary navigation">
-      <a href="index.html" class="active">Home</a>
+    <!-- Mobile dropdown -->
+    <div class="container mobile-menu" id="mobileMenu">
+      <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="skills.html">Skills</a>
-      <a href="projects.html">Projects</a>
+      <a href="projects.html" class="active">Projects</a>
       <a href="contact.html">Contact</a>
     </div>
-
-    <!-- Mobile hamburger -->
-    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
-      <span class="burger" aria-hidden="true">
-        <span></span><span></span><span></span>
-      </span>
-    </button>
   </div>
 
-  <!-- Mobile dropdown -->
-  <div class="container mobile-menu" id="mobileMenu">
-    <a href="index.html" class="active">Home</a>
-    <a href="about.html">About</a>
-    <a href="skills.html">Skills</a>
-    <a href="projects.html">Projects</a>
-    <a href="contact.html">Contact</a>
-  </div>
-</div>
-
-
+  <!-- ================= MAIN ================= -->
   <div class="container">
-    <div class="hero">
+
+    <!-- HERO -->
+    <section class="hero">
       <h1>Projects</h1>
-      <p>Add your real work here. Below are placeholders—replace with your real client/project details.</p>
-    </div>
+      <p>
+        Add your real work here. Below are placeholders—replace with your real client/project details.
+      </p>
+    </section>
 
-    <div class="grid cols-3">
+    <!-- PROJECTS GRID -->
+    <section class="grid cols-3">
 
+      <div class="card">
+        <h2>Local SEO & Google Business Profile Growth</h2>
+        <p>Optimized Google Business Profile to improve local visibility and customer actions.</p>
+        <ul class="list">
+          <li>Work: GBP categories, services, posts, reviews</li>
+          <li>Goal: Calls & local reach</li>
+          <li>Result: Improved map visibility & engagement</li>
+        </ul>
+      </div>
 
-  <div class="card">
-    <h2>Local SEO & Google Business Profile Growth</h2>
-    <p>Optimized Google Business Profile to improve local visibility and customer actions.</p>
-    <ul class="list">
-      <li>Work: GBP categories, services, posts, reviews</li>
-      <li>Goal: Calls & local reach</li>
-      <li>Result: Improved map visibility & engagement</li>
-    </ul>
+      <div class="card">
+        <h2>Website SEO Audit & On-Page Optimization</h2>
+        <p>SEO audit and on-page improvements to strengthen search engine understanding.</p>
+        <ul class="list">
+          <li>Work: Titles, meta, headings, internal links</li>
+          <li>Goal: Better indexing & relevance</li>
+          <li>Result: Strong SEO foundation</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>WordPress Website Optimization</h2>
+        <p>SEO-friendly WordPress structure focused on performance and usability.</p>
+        <ul class="list">
+          <li>Work: Page structure, speed, mobile UX</li>
+          <li>Goal: Better user experience</li>
+          <li>Result: Faster, cleaner website</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Social Media Optimization (SMO)</h2>
+        <p>Optimized social profiles for better visibility and engagement.</p>
+        <ul class="list">
+          <li>Work: Bio, content plan, hashtags</li>
+          <li>Goal: Engagement & branding</li>
+          <li>Result: Improved profile performance</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Google Ads Campaign Setup (SEM)</h2>
+        <p>Search ad campaigns built with intent-based keywords and optimized ads.</p>
+        <ul class="list">
+          <li>Work: Keywords, ads, landing alignment</li>
+          <li>Goal: Lead generation</li>
+          <li>Result: Relevant traffic & leads</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>YouTube SEO & Channel Optimization</h2>
+        <p>Optimized videos and channel structure for better discoverability.</p>
+        <ul class="list">
+          <li>Work: Titles, tags, playlists</li>
+          <li>Goal: Reach & visibility</li>
+          <li>Result: Improved video discoverability</li>
+        </ul>
+      </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      © <span id="y"></span> TP Digital X • Built on GitHub Pages
+    </footer>
+
   </div>
 
-  <div class="card">
-    <h2>Website SEO Audit & On-Page Optimization</h2>
-    <p>SEO audit and on-page improvements to strengthen search engine understanding.</p>
-    <ul class="list">
-      <li>Work: Titles, meta, headings, internal links</li>
-      <li>Goal: Better indexing & relevance</li>
-      <li>Result: Strong SEO foundation</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <h2>WordPress Website Optimization</h2>
-    <p>SEO-friendly WordPress structure focused on performance and usability.</p>
-    <ul class="list">
-      <li>Work: Page structure, speed, mobile UX</li>
-      <li>Goal: Better user experience</li>
-      <li>Result: Faster, cleaner website</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <h2>Social Media Optimization (SMO)</h2>
-    <p>Optimized social profiles for better visibility and engagement.</p>
-    <ul class="list">
-      <li>Work: Bio, content plan, hashtags</li>
-      <li>Goal: Engagement & branding</li>
-      <li>Result: Improved profile performance</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <h2>Google Ads Campaign Setup (SEM)</h2>
-    <p>Search ad campaigns built with intent-based keywords and optimized ads.</p>
-    <ul class="list">
-      <li>Work: Keywords, ads, landing alignment</li>
-      <li>Goal: Lead generation</li>
-      <li>Result: Relevant traffic & leads</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <h2>YouTube SEO & Channel Optimization</h2>
-    <p>Optimized videos and channel structure for better discoverability.</p>
-    <ul class="list">
-      <li>Work: Titles, tags, playlists</li>
-      <li>Goal: Reach & visibility</li>
-      <li>Result: Improved video discoverability</li>
-    </ul>
-  </div>
-
-</div>
-
-
-    <div class="footer">© <span id="y"></span> TP Digital X</div>
-  </div>
-
-  <script src="assets/script.js"></script>
-  <script>document.getElementById("y").textContent = new Date().getFullYear()</script>
+  <!-- ================= SCRIPTS ================= -->
   <script>
-  (function () {
-    const nav = document.getElementById("siteNav");
-    const btn = document.getElementById("navToggle");
+    // year
+    document.getElementById("y").textContent = new Date().getFullYear();
 
-    if (!nav || !btn) return;
+    // hamburger
+    (function () {
+      const nav = document.getElementById("siteNav");
+      const btn = document.getElementById("navToggle");
+      if (!nav || !btn) return;
 
-    btn.addEventListener("click", function () {
-      const isOpen = nav.classList.toggle("open");
-      btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
-      btn.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
-    });
+      btn.addEventListener("click", function () {
+        const isOpen = nav.classList.toggle("open");
+        btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        btn.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+      });
 
-    // Close menu when user taps a link
-    nav.addEventListener("click", function (e) {
-      const link = e.target.closest("a");
-      if (!link) return;
-      nav.classList.remove("open");
-      btn.setAttribute("aria-expanded", "false");
-      btn.setAttribute("aria-label", "Open menu");
-    });
-  })();
-</script>
+      // close menu when tapping a link
+      nav.addEventListener("click", function (e) {
+        const link = e.target.closest("a");
+        if (!link) return;
+        nav.classList.remove("open");
+        btn.setAttribute("aria-expanded", "false");
+        btn.setAttribute("aria-label", "Open menu");
+      });
+    })();
+  </script>
 
 </body>
 </html>
