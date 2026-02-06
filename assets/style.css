@@ -46,7 +46,7 @@ body{
   padding:10px 0;
 }
 
-/* Brand wrapper (now anchor) */
+/* Brand */
 .brand{
   display:flex;
   align-items:center;
@@ -54,37 +54,12 @@ body{
   font-weight:800;
   min-width:0;
 }
-
-/* ================= LOGO (OPTION 1) ================= */
-.logo-v1{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  font-weight:900;
-  letter-spacing:.4px;
+.brand > div{
   white-space:nowrap;
-  color:var(--text);
-  text-shadow:0 0 10px rgba(77,124,255,.35);
   font-size:18px;
+  letter-spacing:.2px;
+  text-shadow:0 0 10px rgba(77,124,255,.55);
 }
-.logo-v1 .logo-word{
-  font-weight:800;
-  color:rgba(234,240,255,.95);
-}
-.logo-v1 .logo-x{
-  width:26px;
-  height:26px;
-  border-radius:999px;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  font-size:13px;
-  font-weight:900;
-  color:#0b1220;
-  background:rgba(234,240,255,.95);
-  box-shadow:0 0 0 2px rgba(77,124,255,.28), 0 0 16px rgba(77,124,255,.25);
-}
-
 .badge{
   font-size:12px;
   padding:6px 10px;
@@ -252,6 +227,7 @@ body{
   gap:16px;
   margin-top:24px;
 }
+
 .card{
   grid-column:span 12;
   padding:20px;
@@ -260,6 +236,7 @@ body{
   background:var(--card);
   box-shadow:var(--shadow);
 }
+
 .card h2{margin:0 0 10px;font-size:22px}
 .section-title{color:var(--muted); margin:0 0 10px}
 
@@ -282,13 +259,14 @@ body{
   font-size:13px;
 }
 
-/* ================= SOCIAL ICONS ================= */
+/* ================= SOCIAL ICONS (FINAL FIX) ================= */
 .social-icons{
   display:flex;
   flex-wrap:wrap;
   gap:12px;
   margin-top:16px;
 }
+
 .social-icons a{
   width:56px;
   height:56px;
@@ -300,10 +278,12 @@ body{
   justify-content:center;
   transition:.18s;
 }
+
 .social-icons a:hover{
   background:rgba(77,124,255,.12);
   transform:translateY(-1px);
 }
+
 .social-icons svg{
   width:22px;
   height:22px;
@@ -336,11 +316,7 @@ body{
   .nav-toggle{display:inline-flex}
 
   .nav-inner{padding:12px 0}
-
-  /* logo sizing */
-  .logo-v1{font-size:16px}
-  .logo-v1 .logo-x{width:22px;height:22px;font-size:12px}
-  .badge{font-size:11px;padding:5px 8px}
+  .brand > div{font-size:16px}
 
   .hero{padding:26px 0 14px}
   .hero h1{font-size:32px; line-height:1.15}
@@ -364,10 +340,12 @@ body{
   }
 }
 
+/* Very small phones */
 @media(max-width:420px){
   .kpi-box{grid-template-columns:1fr}
 }
 
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce){
   *{transition:none!important}
 }
