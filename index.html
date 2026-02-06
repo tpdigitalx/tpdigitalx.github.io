@@ -5,59 +5,53 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>TP Digital X | SEO, GBP & Ads Portfolio</title>
   <meta name="description" content="TP Digital X – digital marketing portfolio featuring SEO audits, on-page SEO, Google Business Profile (GBP) optimization, Google/Meta ads, and YouTube optimization." />
-  <!-- cache-bust -->
-  <link rel="stylesheet" href="assets/style.css?v=20" />
 
+  <!-- cache-bust -->
+  <link rel="stylesheet" href="assets/style.css?v=30" />
 </head>
+
 <body>
 
- <div class="nav" id="siteNav">
-  <div class="container nav-inner">
+  <!-- ================= NAV (HAMBURGER) ================= -->
+  <div class="nav" id="siteNav">
+    <div class="container nav-inner">
 
-    <div class="brand">
-      <div>TP Digital X</div>
-      <span class="badge">Portfolio</span>
-    </div>
+      <div class="brand">
+        <div>TP Digital X</div>
+        <span class="badge">Portfolio</span>
+      </div>
 
-    <!-- Desktop menu -->
-    <div class="menu" aria-label="Primary navigation">
-      <a href="index.html" class="active">Home</a>
-      <a href="about.html">About</a>
-      <a href="skills.html">Skills</a>
-      <a href="projects.html">Projects</a>
-      <a href="contact.html">Contact</a>
-    </div>
-
-    <!-- Mobile hamburger -->
-    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
-      <span class="burger" aria-hidden="true">
-        <span></span><span></span><span></span>
-      </span>
-    </button>
-  </div>
-
-  <!-- Mobile dropdown -->
-  <div class="container mobile-menu" id="mobileMenu">
-    <a href="index.html" class="active">Home</a>
-    <a href="about.html">About</a>
-    <a href="skills.html">Skills</a>
-    <a href="projects.html">Projects</a>
-    <a href="contact.html">Contact</a>
-  </div>
-</div>
-
-
-      <div class="menu">
+      <!-- Desktop menu -->
+      <div class="menu" aria-label="Primary navigation">
         <a href="index.html" class="active">Home</a>
         <a href="about.html">About</a>
         <a href="skills.html">Skills</a>
         <a href="projects.html">Projects</a>
         <a href="contact.html">Contact</a>
       </div>
+
+      <!-- Mobile hamburger -->
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <span class="burger" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+      </button>
+    </div>
+
+    <!-- Mobile dropdown -->
+    <div class="container mobile-menu" id="mobileMenu">
+      <a href="index.html" class="active">Home</a>
+      <a href="about.html">About</a>
+      <a href="skills.html">Skills</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
     </div>
   </div>
 
+  <!-- ================= MAIN ================= -->
   <div class="container">
+
+    <!-- HERO -->
     <section class="hero">
       <h1>SEO • GBP Growth • Performance Ads</h1>
       <p>
@@ -79,10 +73,13 @@
       </div>
     </section>
 
-    <div class="grid cols-2">
+    <!-- CONTENT -->
+    <section class="grid cols-2">
+
       <div class="card">
         <h2>What I Do</h2>
         <p class="section-title">Services I can deliver for businesses and local brands.</p>
+
         <ul class="list">
           <li><b>SEO:</b> On-page SEO, technical checks, content improvements, and local SEO.</li>
           <li><b>WordPress:</b> Website setup, speed basics, and conversion-focused optimization.</li>
@@ -105,6 +102,7 @@
       <div class="card">
         <h2>Why Me</h2>
         <p class="section-title">Practical approach focused on clean execution and measurable outcomes.</p>
+
         <ul class="list">
           <li>Clear strategy + real implementation</li>
           <li>SEO-safe methods</li>
@@ -117,15 +115,43 @@
           <a class="btn" href="projects.html">See Work</a>
         </div>
       </div>
-    </div>
 
+    </section>
+
+    <!-- FOOTER -->
     <footer class="footer">
       © <span id="y"></span> TP Digital X • Built on GitHub Pages
     </footer>
+
   </div>
 
+  <!-- ================= SCRIPTS ================= -->
   <script>
+    // year
     document.getElementById("y").textContent = new Date().getFullYear();
+
+    // hamburger
+    (function () {
+      const nav = document.getElementById("siteNav");
+      const btn = document.getElementById("navToggle");
+      if (!nav || !btn) return;
+
+      btn.addEventListener("click", function () {
+        const isOpen = nav.classList.toggle("open");
+        btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        btn.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+      });
+
+      // close menu when tapping a link
+      nav.addEventListener("click", function (e) {
+        const link = e.target.closest("a");
+        if (!link) return;
+        nav.classList.remove("open");
+        btn.setAttribute("aria-expanded", "false");
+        btn.setAttribute("aria-label", "Open menu");
+      });
+    })();
   </script>
+
 </body>
 </html>
