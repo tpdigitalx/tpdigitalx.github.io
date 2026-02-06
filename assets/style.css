@@ -95,7 +95,7 @@ body{
   background:rgba(77,124,255,.12);
 }
 
-/* Hamburger button (hidden on desktop) */
+/* Hamburger (hidden on desktop) */
 .nav-toggle{
   display:none;
   width:44px;
@@ -112,18 +112,9 @@ body{
   background:rgba(77,124,255,.10);
   border-color:rgba(77,124,255,.25);
 }
-
-.burger{
-  width:18px;
-  height:14px;
-  position:relative;
-}
+.burger{width:18px;height:14px;position:relative}
 .burger span{
-  position:absolute;
-  left:0;
-  right:0;
-  height:2px;
-  border-radius:999px;
+  position:absolute;left:0;right:0;height:2px;border-radius:999px;
   background:rgba(234,240,255,.9);
   transition:transform .18s ease, opacity .18s ease, top .18s ease;
 }
@@ -131,7 +122,7 @@ body{
 .burger span:nth-child(2){top:6px}
 .burger span:nth-child(3){top:12px}
 
-/* Mobile dropdown panel */
+/* Mobile dropdown */
 .mobile-menu{
   display:none;
   border-top:1px solid rgba(255,255,255,.08);
@@ -236,6 +227,7 @@ body{
   gap:16px;
   margin-top:24px;
 }
+
 .card{
   grid-column:span 12;
   padding:20px;
@@ -244,10 +236,59 @@ body{
   background:var(--card);
   box-shadow:var(--shadow);
 }
+
 .card h2{margin:0 0 10px;font-size:22px}
 .section-title{color:var(--muted); margin:0 0 10px}
+
 .list{padding-left:18px;color:var(--muted);margin:10px 0 0}
 .list li{margin:8px 0}
+
+/* Pills */
+.pills{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:12px;
+}
+.pill{
+  padding:7px 12px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(255,255,255,.03);
+  color:var(--muted);
+  font-size:13px;
+}
+
+/* ================= SOCIAL ICONS (FINAL FIX) ================= */
+.social-icons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:16px;
+}
+
+.social-icons a{
+  width:56px;
+  height:56px;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(255,255,255,.04);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:.18s;
+}
+
+.social-icons a:hover{
+  background:rgba(77,124,255,.12);
+  transform:translateY(-1px);
+}
+
+.social-icons svg{
+  width:22px;
+  height:22px;
+  fill:var(--text);
+}
 
 /* Footer */
 .footer{
@@ -262,33 +303,41 @@ body{
 @media(min-width:860px){
   .hero{padding:50px 0 22px}
   .kpi-box{grid-template-columns:repeat(4, minmax(0, 1fr))}
+  .cols-2 .card{grid-column:span 6}
+  .cols-3 .card{grid-column:span 4}
 }
 
 /* ================= MOBILE ================= */
 @media(max-width:860px){
   .container{padding:16px}
 
-  /* Hide desktop menu, show hamburger */
+  /* hamburger on, desktop menu off */
   .menu{display:none}
   .nav-toggle{display:inline-flex}
 
-  /* Brand row: title + badge + hamburger */
-  .nav-inner{
-    padding:12px 0;
-  }
+  .nav-inner{padding:12px 0}
   .brand > div{font-size:16px}
 
-  /* Hero */
   .hero{padding:26px 0 14px}
   .hero h1{font-size:32px; line-height:1.15}
   .hero p{font-size:15.5px}
 
-  /* CTA full width */
   .hero-cta{flex-direction:column}
   .btn{width:100%}
 
-  /* KPI 2x2 */
   .kpi-box{grid-template-columns:repeat(2, minmax(0, 1fr))}
+
+  /* social icons smaller on mobile */
+  .social-icons{gap:10px}
+  .social-icons a{
+    width:48px;
+    height:48px;
+    border-radius:14px;
+  }
+  .social-icons svg{
+    width:18px;
+    height:18px;
+  }
 }
 
 /* Very small phones */
