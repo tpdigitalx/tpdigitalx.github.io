@@ -7,7 +7,7 @@
   <meta name="description" content="TP Digital X – digital marketing portfolio featuring SEO audits, on-page SEO, Google Business Profile (GBP) optimization, Google/Meta ads, and YouTube optimization." />
 
   <!-- cache-bust -->
-  <link rel="stylesheet" href="assets/style.css?v=30" />
+  <link rel="stylesheet" href="assets/style.css?v=31" />
 </head>
 
 <body>
@@ -16,10 +16,14 @@
   <div class="nav" id="siteNav">
     <div class="container nav-inner">
 
-      <div class="brand">
-        <div>TP Digital X</div>
+      <!-- ✅ UPDATED LOGO (OPTION 1) -->
+      <a class="brand" href="index.html" aria-label="TP Digital X">
+        <span class="logo-text logo-v1">
+          TP <span class="logo-word">Digital</span>
+          <span class="logo-x">X</span>
+        </span>
         <span class="badge">Portfolio</span>
-      </div>
+      </a>
 
       <!-- Desktop menu -->
       <div class="menu" aria-label="Primary navigation">
@@ -127,10 +131,8 @@
 
   <!-- ================= SCRIPTS ================= -->
   <script>
-    // year
     document.getElementById("y").textContent = new Date().getFullYear();
 
-    // hamburger
     (function () {
       const nav = document.getElementById("siteNav");
       const btn = document.getElementById("navToggle");
@@ -142,7 +144,6 @@
         btn.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
       });
 
-      // close menu when tapping a link
       nav.addEventListener("click", function (e) {
         const link = e.target.closest("a");
         if (!link) return;
