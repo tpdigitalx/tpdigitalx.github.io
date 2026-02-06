@@ -2,115 +2,119 @@
   --bg:#0b1220;
   --text:#eaf0ff;
   --muted:#b8c3e6;
-  --border:rgba(255,255,255,.08);
+  --border:rgba(255,255,255,.10);
+  --card:rgba(255,255,255,.035);
+  --chip:rgba(255,255,255,.045);
+  --blue:rgba(77,124,255,.22);
+  --shadow:0 14px 34px rgba(0,0,0,.35);
 }
 
-/* RESET */
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
+a{color:inherit;text-decoration:none}
 
-/* BASE */
 body{
   font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
   background:
-    radial-gradient(1200px 600px at 10% -10%,rgba(77,124,255,.25),transparent 60%),
-    radial-gradient(900px 500px at 100% 0%,rgba(34,211,238,.18),transparent 55%),
+    radial-gradient(1200px 600px at 10% -10%,rgba(77,124,255,.22),transparent 60%),
+    radial-gradient(900px 500px at 100% 0%,rgba(34,211,238,.14),transparent 55%),
     var(--bg);
   color:var(--text);
-  line-height:1.6;
+  line-height:1.55;
 }
 
-a{text-decoration:none;color:inherit}
-
-/* LAYOUT */
 .container{
   max-width:1050px;
   margin:0 auto;
-  padding:24px;
+  padding:22px;
 }
 
-/* NAV */
+/* ================= NAV ================= */
 .nav{
   position:sticky;
   top:0;
   z-index:10;
-  background:rgba(11,18,32,.9);
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid var(--border);
+  background:rgba(11,18,32,.88);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(255,255,255,.08);
 }
 
 .nav-inner{
   display:flex;
-  justify-content:space-between;
   align-items:center;
-  gap:16px;
+  justify-content:space-between;
+  gap:14px;
   padding:10px 0;
 }
 
+/* Brand */
 .brand{
   display:flex;
   align-items:center;
-  gap:12px;
+  gap:10px;
   font-weight:800;
-  min-width:0; /* prevents wrapping issues */
+  min-width:0;
 }
-
-.brand div{
-  white-space:nowrap;       /* ✅ keep TP Digital X in one line */
+.brand > div{
+  white-space:nowrap;
   font-size:18px;
-  text-shadow:0 0 10px rgba(77,124,255,.6);
+  letter-spacing:.2px;
+  text-shadow:0 0 10px rgba(77,124,255,.55);
 }
-
 .badge{
   font-size:12px;
   padding:6px 10px;
-  border:1px solid var(--border);
+  border:1px solid rgba(255,255,255,.10);
   border-radius:999px;
   color:var(--muted);
   white-space:nowrap;
+  background:rgba(255,255,255,.03);
 }
 
 /* Menu */
 .menu{
   display:flex;
-  gap:14px;
+  gap:10px;
   align-items:center;
 }
-
 .menu a{
-  padding:8px 14px;
-  border-radius:10px;
+  padding:8px 12px;
+  border-radius:12px;
   color:var(--muted);
   white-space:nowrap;
   border:1px solid transparent;
+  background:transparent;
+  transition:.18s;
 }
-
-.menu a.active,
 .menu a:hover{
-  background:rgba(77,124,255,.15);
   color:var(--text);
-  border-color:rgba(77,124,255,.25);
+  border-color:rgba(77,124,255,.22);
+  background:rgba(77,124,255,.10);
+}
+.menu a.active{
+  color:var(--text);
+  border-color:rgba(77,124,255,.30);
+  background:rgba(77,124,255,.12);
 }
 
-/* HERO */
+/* ================= HERO ================= */
 .hero{
-  padding:48px 0 24px;
+  padding:30px 0 16px;
 }
-
 .hero h1{
-  font-size:42px;
   margin:0 0 10px;
+  font-size:44px;
   line-height:1.12;
+  letter-spacing:-.3px;
 }
-
 .hero p{
-  max-width:820px;
-  color:var(--muted);
   margin:0;
-  font-size:16px;
+  color:var(--muted);
+  max-width:860px;
+  font-size:17px;
 }
 
-/* BUTTONS */
+/* CTA */
 .hero-cta{
   margin-top:16px;
   display:flex;
@@ -118,100 +122,142 @@ a{text-decoration:none;color:inherit}
   flex-wrap:wrap;
 }
 
+/* Buttons */
 .btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
   padding:12px 16px;
-  border-radius:12px;
-  border:1px solid var(--border);
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.10);
   background:rgba(255,255,255,.04);
-  transition:.2s;
+  transition:transform .18s ease, background .18s ease, border-color .18s ease, box-shadow .18s ease;
 }
-
 .btn:hover{
-  background:rgba(77,124,255,.12);
   transform:translateY(-1px);
+  background:rgba(255,255,255,.06);
+  box-shadow:0 12px 26px rgba(0,0,0,.25);
 }
-
 .btn.primary{
-  background:rgba(77,124,255,.25);
-  border-color:rgba(77,124,255,.6);
+  background:rgba(77,124,255,.20);
+  border-color:rgba(77,124,255,.55);
+}
+.btn.primary:hover{
+  background:rgba(77,124,255,.26);
+  box-shadow:0 12px 30px rgba(0,0,0,.28), 0 0 18px rgba(77,124,255,.18);
 }
 
-/* KPI CHIPS */
+/* ================= KPI (MOBILE FIRST GRID) ================= */
 .kpi-box{
-  margin-top:18px;
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px;
+  margin-top:16px;
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  gap:10px;
+  max-width:760px;
 }
 
 .kpi{
-  padding:10px 16px;
-  border-radius:999px;
-  border:1px solid var(--border);
-  background:rgba(255,255,255,.04);
-  font-size:14px;
+  padding:11px 12px;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(255,255,255,.035);
+  font-size:13.5px;
+  color:var(--text);
 
-  display:inline-flex;
+  display:flex;
   align-items:center;
   gap:8px;
 
-  transition:.2s;
+  min-width:0;
+  overflow-wrap:anywhere;
 }
 
 .kpi::before{
   content:"";
-  width:6px;
-  height:6px;
-  background:#4d7cff;
+  width:7px;
+  height:7px;
   border-radius:50%;
+  background:rgba(77,124,255,.95);
+  flex:0 0 auto;
 }
 
 .kpi:hover{
-  background:rgba(77,124,255,.12);
-  transform:translateY(-1px);
+  background:rgba(77,124,255,.10);
+  border-color:rgba(77,124,255,.26);
 }
 
-/* GRID */
+/* Desktop KPI: 4 chips in a row if space, else wraps */
+@media(min-width:860px){
+  .hero{padding:50px 0 22px}
+  .kpi-box{grid-template-columns:repeat(4, minmax(0, 1fr))}
+  .kpi{font-size:14px}
+}
+
+/* ================= GRID / CARDS ================= */
 .grid{
   display:grid;
   grid-template-columns:repeat(12,1fr);
   gap:16px;
-  margin-top:30px;
+  margin-top:24px;
 }
 
 .card{
   grid-column:span 12;
   padding:20px;
-  border-radius:18px;
-  border:1px solid var(--border);
-  background:rgba(255,255,255,.03);
+  border-radius:20px;
+  border:1px solid rgba(255,255,255,.08);
+  background:var(--card);
+  box-shadow:var(--shadow);
 }
+
+.card h2{
+  margin:0 0 10px;
+  font-size:22px;
+}
+.section-title{color:var(--muted); margin:0 0 10px}
 
 @media(min-width:860px){
   .cols-2 .card{grid-column:span 6}
 }
 
-/* LIST */
+/* Lists */
 .list{
   padding-left:18px;
   color:var(--muted);
+  margin:10px 0 0;
+}
+.list li{margin:8px 0}
+
+/* Pills */
+.pills{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:12px;
+}
+.pill{
+  padding:8px 12px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(255,255,255,.03);
+  color:var(--muted);
+  font-size:13px;
 }
 
-/* FOOTER */
+/* Footer */
 .footer{
-  margin-top:40px;
-  padding:24px 0;
-  border-top:1px solid var(--border);
+  margin-top:34px;
+  padding:26px 0 40px;
+  border-top:1px solid rgba(255,255,255,.08);
   color:var(--muted);
   font-size:14px;
 }
 
-/* ================= MOBILE FIXES (IMPORTANT) ================= */
+/* ================= MOBILE NAV FIX (THE KEY) ================= */
 @media(max-width:860px){
-
   .container{padding:16px}
 
-  /* Navbar: brand left, menu scrollable, no wrapping */
+  /* Keep brand on one line + move menu under it */
   .nav-inner{
     flex-direction:column;
     align-items:flex-start;
@@ -223,72 +269,33 @@ a{text-decoration:none;color:inherit}
     justify-content:space-between;
   }
 
-  .brand div{
-    font-size:16px;          /* smaller so it never breaks */
-  }
-
-  .badge{
-    font-size:11px;
-    padding:5px 9px;
-  }
-
+  /* Scrollable menu row */
   .menu{
     width:100%;
-    overflow-x:auto;          /* ✅ horizontal scroll */
+    overflow-x:auto;
     -webkit-overflow-scrolling:touch;
     padding-bottom:6px;
-    gap:10px;
   }
-
   .menu::-webkit-scrollbar{height:0}
 
-  .menu a{
-    padding:8px 12px;
-    font-size:14px;
-  }
+  /* Hero */
+  .hero h1{font-size:32px}
+  .hero p{font-size:15.5px}
 
-  /* Hero typography */
-  .hero{
-    padding:28px 0 16px;
-  }
+  /* CTA full width */
+  .hero-cta{flex-direction:column}
+  .btn{width:100%}
 
-  .hero h1{
-    font-size:30px;
-    line-height:1.15;
-  }
-
-  .hero p{
-    font-size:15px;
-  }
-
-  /* Buttons stacked full width */
-  .hero-cta{
-    flex-direction:column;
-  }
-
-  .btn{
-    width:100%;
-    text-align:center;
-  }
-
-  /* KPI chips: 2-column grid on mobile */
-  .kpi-box{
-    display:grid;
-    grid-template-columns:repeat(2, minmax(0, 1fr));
-    gap:10px;
-  }
-
-  .kpi{
-    width:100%;
-    justify-content:center;   /* looks cleaner */
-    padding:10px 12px;
-    font-size:13px;
-  }
+  /* KPI stays 2x2 */
+  .kpi-box{grid-template-columns:repeat(2, minmax(0, 1fr))}
 }
 
-/* Very small screens: KPI becomes 1 column */
+/* Very small phones: KPI 1 column */
 @media(max-width:420px){
-  .kpi-box{
-    grid-template-columns:1fr;
-  }
+  .kpi-box{grid-template-columns:1fr}
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  *{transition:none!important}
 }
