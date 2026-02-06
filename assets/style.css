@@ -4,9 +4,8 @@
   --muted:#b8c3e6;
   --border:rgba(255,255,255,.10);
   --card:rgba(255,255,255,.035);
-  --chip:rgba(255,255,255,.045);
-  --blue:rgba(77,124,255,.22);
   --shadow:0 14px 34px rgba(0,0,0,.35);
+  --blue:rgba(77,124,255,.22);
 }
 
 *{box-sizing:border-box}
@@ -47,6 +46,7 @@ body{
   padding:10px 0;
 }
 
+/* Brand */
 .brand{
   display:flex;
   align-items:center;
@@ -54,14 +54,12 @@ body{
   font-weight:800;
   min-width:0;
 }
-
 .brand > div{
   white-space:nowrap;
   font-size:18px;
   letter-spacing:.2px;
   text-shadow:0 0 10px rgba(77,124,255,.55);
 }
-
 .badge{
   font-size:12px;
   padding:6px 10px;
@@ -72,47 +70,101 @@ body{
   background:rgba(255,255,255,.03);
 }
 
-/* Menu */
+/* Desktop menu */
 .menu{
   display:flex;
   gap:10px;
   align-items:center;
 }
-
 .menu a{
   padding:8px 12px;
   border-radius:12px;
   color:var(--muted);
   white-space:nowrap;
   border:1px solid transparent;
-  background:transparent;
   transition:.18s;
 }
-
 .menu a:hover{
   color:var(--text);
   border-color:rgba(77,124,255,.22);
   background:rgba(77,124,255,.10);
 }
-
 .menu a.active{
   color:var(--text);
   border-color:rgba(77,124,255,.30);
   background:rgba(77,124,255,.12);
 }
 
-/* ================= HERO ================= */
-.hero{
-  padding:30px 0 16px;
+/* Hamburger button (hidden on desktop) */
+.nav-toggle{
+  display:none;
+  width:44px;
+  height:44px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(255,255,255,.04);
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  transition:.18s;
+}
+.nav-toggle:hover{
+  background:rgba(77,124,255,.10);
+  border-color:rgba(77,124,255,.25);
 }
 
+.burger{
+  width:18px;
+  height:14px;
+  position:relative;
+}
+.burger span{
+  position:absolute;
+  left:0;
+  right:0;
+  height:2px;
+  border-radius:999px;
+  background:rgba(234,240,255,.9);
+  transition:transform .18s ease, opacity .18s ease, top .18s ease;
+}
+.burger span:nth-child(1){top:0}
+.burger span:nth-child(2){top:6px}
+.burger span:nth-child(3){top:12px}
+
+/* Mobile dropdown panel */
+.mobile-menu{
+  display:none;
+  border-top:1px solid rgba(255,255,255,.08);
+  padding:10px 0 14px;
+}
+.mobile-menu a{
+  display:block;
+  padding:12px 12px;
+  margin:6px 0;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(255,255,255,.03);
+  color:var(--text);
+}
+.mobile-menu a.active{
+  border-color:rgba(77,124,255,.35);
+  background:rgba(77,124,255,.12);
+}
+
+/* Open state */
+.nav.open .mobile-menu{display:block}
+.nav.open .burger span:nth-child(1){top:6px; transform:rotate(45deg)}
+.nav.open .burger span:nth-child(2){opacity:0}
+.nav.open .burger span:nth-child(3){top:6px; transform:rotate(-45deg)}
+
+/* ================= HERO ================= */
+.hero{padding:30px 0 16px}
 .hero h1{
   margin:0 0 10px;
   font-size:44px;
   line-height:1.12;
   letter-spacing:-.3px;
 }
-
 .hero p{
   margin:0;
   color:var(--muted);
@@ -139,24 +191,17 @@ body{
   background:rgba(255,255,255,.04);
   transition:transform .18s ease, background .18s ease, border-color .18s ease, box-shadow .18s ease;
 }
-
 .btn:hover{
   transform:translateY(-1px);
   background:rgba(255,255,255,.06);
   box-shadow:0 12px 26px rgba(0,0,0,.25);
 }
-
 .btn.primary{
   background:rgba(77,124,255,.20);
   border-color:rgba(77,124,255,.55);
 }
 
-.btn.primary:hover{
-  background:rgba(77,124,255,.26);
-  box-shadow:0 12px 30px rgba(0,0,0,.28), 0 0 18px rgba(77,124,255,.18);
-}
-
-/* ================= KPI (compact on mobile) ================= */
+/* KPI */
 .kpi-box{
   margin-top:16px;
   display:grid;
@@ -164,52 +209,33 @@ body{
   gap:10px;
   max-width:760px;
 }
-
 .kpi{
   padding:11px 12px;
   border-radius:16px;
   border:1px solid rgba(255,255,255,.10);
   background:rgba(255,255,255,.035);
   font-size:13.5px;
-  color:var(--text);
-
   display:flex;
   align-items:center;
   gap:8px;
-
   min-width:0;
   overflow-wrap:anywhere;
 }
-
 .kpi::before{
   content:"";
   width:7px;
   height:7px;
   border-radius:50%;
   background:rgba(77,124,255,.95);
-  flex:0 0 auto;
 }
 
-.kpi:hover{
-  background:rgba(77,124,255,.10);
-  border-color:rgba(77,124,255,.26);
-}
-
-/* Desktop: 4 across */
-@media(min-width:860px){
-  .hero{padding:50px 0 22px}
-  .kpi-box{grid-template-columns:repeat(4, minmax(0, 1fr))}
-  .kpi{font-size:14px}
-}
-
-/* ================= GRID / CARDS ================= */
+/* GRID / CARDS */
 .grid{
   display:grid;
   grid-template-columns:repeat(12,1fr);
   gap:16px;
   margin-top:24px;
 }
-
 .card{
   grid-column:span 12;
   padding:20px;
@@ -218,72 +244,12 @@ body{
   background:var(--card);
   box-shadow:var(--shadow);
 }
-
-.card h2{
-  margin:0 0 10px;
-  font-size:22px;
-}
+.card h2{margin:0 0 10px;font-size:22px}
 .section-title{color:var(--muted); margin:0 0 10px}
-
-@media(min-width:860px){
-  .cols-2 .card{grid-column:span 6}
-}
-
-/* Lists */
-.list{
-  padding-left:18px;
-  color:var(--muted);
-  margin:10px 0 0;
-}
+.list{padding-left:18px;color:var(--muted);margin:10px 0 0}
 .list li{margin:8px 0}
 
-/* Pills */
-.pills{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  margin-top:12px;
-}
-.pill{
-  padding:8px 12px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.10);
-  background:rgba(255,255,255,.03);
-  color:var(--muted);
-  font-size:13px;
-}
-
-/* ================= SOCIAL ICONS (FIX BIG ICONS) ================= */
-.social-icons{
-  display:grid;
-  grid-template-columns:repeat(4, minmax(0, 1fr));
-  gap:12px;
-  margin-top:16px;
-}
-
-.social-icons a{
-  height:54px;
-  border-radius:16px;
-  border:1px solid rgba(255,255,255,.10);
-  background:rgba(255,255,255,.04);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  transition:.18s;
-}
-
-.social-icons a:hover{
-  background:rgba(77,124,255,.12);
-  transform:translateY(-1px);
-}
-
-.social-icons svg{
-  width:22px;
-  height:22px;
-  fill:var(--text);
-}
-
-/* ================= FOOTER ================= */
+/* Footer */
 .footer{
   margin-top:34px;
   padding:26px 0 40px;
@@ -292,86 +258,42 @@ body{
   font-size:14px;
 }
 
-/* ================= MOBILE OPTIMIZATION ================= */
+/* ================= DESKTOP ================= */
+@media(min-width:860px){
+  .hero{padding:50px 0 22px}
+  .kpi-box{grid-template-columns:repeat(4, minmax(0, 1fr))}
+}
+
+/* ================= MOBILE ================= */
 @media(max-width:860px){
   .container{padding:16px}
 
-  /* NAV: Clean mobile layout */
+  /* Hide desktop menu, show hamburger */
+  .menu{display:none}
+  .nav-toggle{display:inline-flex}
+
+  /* Brand row: title + badge + hamburger */
   .nav-inner{
-    flex-direction:column;
-    align-items:stretch;
-    gap:10px;
+    padding:12px 0;
   }
+  .brand > div{font-size:16px}
 
-  /* Brand row: left title, right badge */
-  .brand{
-    width:100%;
-    justify-content:space-between;
-  }
-
-  .brand > div{
-    font-size:16px;
-  }
-
-  .badge{
-    font-size:11px;
-    padding:6px 10px;
-  }
-
-  /* Menu: horizontal scroll */
-  .menu{
-    width:100%;
-    overflow-x:auto;
-    -webkit-overflow-scrolling:touch;
-    gap:10px;
-    padding-bottom:6px;
-  }
-  .menu::-webkit-scrollbar{height:0}
-
-  /* Hero text */
-  .hero{
-    padding:26px 0 14px;
-  }
-  .hero h1{
-    font-size:32px;
-    line-height:1.15;
-  }
-  .hero p{
-    font-size:15.5px;
-  }
+  /* Hero */
+  .hero{padding:26px 0 14px}
+  .hero h1{font-size:32px; line-height:1.15}
+  .hero p{font-size:15.5px}
 
   /* CTA full width */
-  .hero-cta{
-    flex-direction:column;
-  }
-  .btn{
-    width:100%;
-  }
+  .hero-cta{flex-direction:column}
+  .btn{width:100%}
 
-  /* KPI stays 2x2 */
-  .kpi-box{
-    grid-template-columns:repeat(2, minmax(0, 1fr));
-  }
-
-  /* Social icons: smaller + grid */
-  .social-icons{
-    grid-template-columns:repeat(3, minmax(0, 1fr));
-    gap:10px;
-  }
-  .social-icons a{
-    height:46px;
-    border-radius:14px;
-  }
-  .social-icons svg{
-    width:18px;
-    height:18px;
-  }
+  /* KPI 2x2 */
+  .kpi-box{grid-template-columns:repeat(2, minmax(0, 1fr))}
 }
 
 /* Very small phones */
 @media(max-width:420px){
   .kpi-box{grid-template-columns:1fr}
-  .social-icons{grid-template-columns:repeat(2, minmax(0, 1fr))}
 }
 
 /* Reduced motion */
