@@ -5,52 +5,58 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Contact | TP Digital X</title>
   <meta name="description" content="Contact TP Digital X for SEO, WordPress, SMM/SMO, SEM, YouTube optimization, and Google Business Profile work." />
-  <link rel="stylesheet" href="assets/style.css" />
+
+  <!-- cache-bust -->
+  <link rel="stylesheet" href="assets/style.css?v=30" />
 </head>
+
 <body>
 
+  <!-- ================= NAV (HAMBURGER) ================= -->
   <div class="nav" id="siteNav">
-  <div class="container nav-inner">
+    <div class="container nav-inner">
 
-    <div class="brand">
-      <div>TP Digital X</div>
-      <span class="badge">Portfolio</span>
+      <div class="brand">
+        <div>TP Digital X</div>
+        <span class="badge">Portfolio</span>
+      </div>
+
+      <!-- Desktop menu -->
+      <div class="menu" aria-label="Primary navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="skills.html">Skills</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html" class="active">Contact</a>
+      </div>
+
+      <!-- Mobile hamburger -->
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <span class="burger" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+      </button>
     </div>
 
-    <!-- Desktop menu -->
-    <div class="menu" aria-label="Primary navigation">
-      <a href="index.html" class="active">Home</a>
+    <!-- Mobile dropdown -->
+    <div class="container mobile-menu" id="mobileMenu">
+      <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="skills.html">Skills</a>
       <a href="projects.html">Projects</a>
-      <a href="contact.html">Contact</a>
+      <a href="contact.html" class="active">Contact</a>
     </div>
-
-    <!-- Mobile hamburger -->
-    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
-      <span class="burger" aria-hidden="true">
-        <span></span><span></span><span></span>
-      </span>
-    </button>
   </div>
 
-  <!-- Mobile dropdown -->
-  <div class="container mobile-menu" id="mobileMenu">
-    <a href="index.html" class="active">Home</a>
-    <a href="about.html">About</a>
-    <a href="skills.html">Skills</a>
-    <a href="projects.html">Projects</a>
-    <a href="contact.html">Contact</a>
-  </div>
-</div>
-
+  <!-- ================= MAIN ================= -->
   <div class="container">
-    <div class="hero">
+
+    <section class="hero">
       <h1>Contact</h1>
       <p>Get in touch for digital marketing work, collaboration, or project discussions.</p>
-    </div>
+    </section>
 
-    <div class="grid cols-2">
+    <section class="grid cols-2">
 
       <div class="card">
         <h2>Contact Information</h2>
@@ -91,12 +97,12 @@
             </svg>
           </a>
 
-           <!-- LinkedIn -->
-  <a href="https://www.linkedin.com/in/pradeep-thakur-59b791320" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn">
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M20.45 20.45h-3.56v-5.56c0-1.32-.02-3.02-1.84-3.02-1.84 0-2.12 1.44-2.12 2.92v5.66H9.37V9h3.42v1.56h.05c.48-.9 1.66-1.84 3.42-1.84 3.66 0 4.34 2.4 4.34 5.52v6.21zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/>
-    </svg>
-  </a>
+          <!-- LinkedIn -->
+          <a href="https://www.linkedin.com/in/pradeep-thakur-59b791320" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20.45 20.45h-3.56v-5.56c0-1.32-.02-3.02-1.84-3.02-1.84 0-2.12 1.44-2.12 2.92v5.66H9.37V9h3.42v1.56h.05c.48-.9 1.66-1.84 3.42-1.84 3.66 0 4.34 2.4 4.34 5.52v6.21zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/>
+            </svg>
+          </a>
 
           <!-- Instagram -->
           <a href="https://www.instagram.com/thakur.pardeep.gawkhedi.18" target="_blank" rel="noopener" title="Instagram" aria-label="Instagram">
@@ -110,14 +116,38 @@
         </div>
       </div>
 
-    </div> <!-- end grid -->
+    </section>
 
-    <div class="footer">© <span id="y"></span> TP Digital X</div>
-  </div> <!-- end container -->
+    <footer class="footer">
+      © <span id="y"></span> TP Digital X • Built on GitHub Pages
+    </footer>
 
-  <script src="assets/script.js"></script>
+  </div>
+
   <script>
+    // year
     document.getElementById("y").textContent = new Date().getFullYear();
+
+    // hamburger
+    (function () {
+      const nav = document.getElementById("siteNav");
+      const btn = document.getElementById("navToggle");
+      if (!nav || !btn) return;
+
+      btn.addEventListener("click", function () {
+        const isOpen = nav.classList.toggle("open");
+        btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        btn.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+      });
+
+      nav.addEventListener("click", function (e) {
+        const link = e.target.closest("a");
+        if (!link) return;
+        nav.classList.remove("open");
+        btn.setAttribute("aria-expanded", "false");
+        btn.setAttribute("aria-label", "Open menu");
+      });
+    })();
   </script>
 
 </body>
