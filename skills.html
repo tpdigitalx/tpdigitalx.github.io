@@ -7,69 +7,59 @@
   <title>Skills | TP Digital X</title>
   <meta name="description" content="Digital marketing skills of TP Digital X including SEO, WordPress, SMM, SEM, Email Marketing, Affiliate Marketing, Analytics, and Google Business Profile optimization." />
 
-  <link rel="stylesheet" href="assets/style.css" />
+  <!-- cache-bust so mobile CSS updates show -->
+  <link rel="stylesheet" href="assets/style.css?v=30" />
 </head>
 
 <body>
 
-  <!-- NAVBAR -->
- <div class="nav" id="siteNav">
-  <div class="container nav-inner">
+  <!-- ================= NAV (HAMBURGER) ================= -->
+  <div class="nav" id="siteNav">
+    <div class="container nav-inner">
 
-    <div class="brand">
-      <div>TP Digital X</div>
-      <span class="badge">Portfolio</span>
-    </div>
+      <div class="brand">
+        <div>TP Digital X</div>
+        <span class="badge">Portfolio</span>
+      </div>
 
-    <!-- Desktop menu -->
-    <div class="menu" aria-label="Primary navigation">
-      <a href="index.html" class="active">Home</a>
-      <a href="about.html">About</a>
-      <a href="skills.html">Skills</a>
-      <a href="projects.html">Projects</a>
-      <a href="contact.html">Contact</a>
-    </div>
-
-    <!-- Mobile hamburger -->
-    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
-      <span class="burger" aria-hidden="true">
-        <span></span><span></span><span></span>
-      </span>
-    </button>
-  </div>
-
-  <!-- Mobile dropdown -->
-  <div class="container mobile-menu" id="mobileMenu">
-    <a href="index.html" class="active">Home</a>
-    <a href="about.html">About</a>
-    <a href="skills.html">Skills</a>
-    <a href="projects.html">Projects</a>
-    <a href="contact.html">Contact</a>
-  </div>
-</div>
-
-
-      <div class="menu">
+      <!-- Desktop menu -->
+      <div class="menu" aria-label="Primary navigation">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="skills.html" class="active">Skills</a>
         <a href="projects.html">Projects</a>
         <a href="contact.html">Contact</a>
       </div>
+
+      <!-- Mobile hamburger -->
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <span class="burger" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+      </button>
+    </div>
+
+    <!-- Mobile dropdown -->
+    <div class="container mobile-menu" id="mobileMenu">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="skills.html" class="active">Skills</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
     </div>
   </div>
 
-  <!-- MAIN CONTENT -->
+  <!-- ================= MAIN ================= -->
   <div class="container">
 
     <!-- HERO -->
-    <div class="hero">
+    <section class="hero">
       <h1>My Digital Marketing Skills</h1>
       <p>Practical skills focused on execution, optimization, and measurable results.</p>
-    </div>
+    </section>
 
     <!-- SKILLS GRID -->
-    <div class="grid cols-2">
+    <section class="grid cols-2">
 
       <div class="card">
         <h2>Search Engine Optimization (SEO)</h2>
@@ -84,4 +74,109 @@
       <div class="card">
         <h2>WordPress</h2>
         <ul class="list">
-          <li>WordPress website setup & management
+          <li>WordPress website setup & management</li>
+          <li>Basic speed optimization & performance hygiene</li>
+          <li>SEO-friendly structure (slugs, internal links, schema basics)</li>
+          <li>Conversion-focused pages (landing pages, CTAs)</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Google Business Profile (GBP)</h2>
+        <ul class="list">
+          <li>Profile optimization (categories, services, description)</li>
+          <li>Posts strategy, updates & offers</li>
+          <li>Review strategy & reputation support</li>
+          <li>Local ranking improvements (maps visibility)</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Social Media (SMM/SMO)</h2>
+        <ul class="list">
+          <li>Profile optimization & branding consistency</li>
+          <li>Content planning & growth basics</li>
+          <li>Hashtag + caption optimization</li>
+          <li>Lead-focused content approach</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Performance Ads (Google/Meta)</h2>
+        <ul class="list">
+          <li>Campaign setup (Search, Display, Meta ads)</li>
+          <li>Keyword targeting & ad copy basics</li>
+          <li>Landing page + conversion alignment</li>
+          <li>Basic optimization & reporting</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Analytics & Reporting</h2>
+        <ul class="list">
+          <li>Google Analytics basics (traffic & behavior tracking)</li>
+          <li>Google Search Console monitoring</li>
+          <li>Simple reports: what changed, why it matters</li>
+          <li>Action-based insights for growth</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Email & Affiliate Marketing</h2>
+        <ul class="list">
+          <li>Email marketing fundamentals (lists, campaigns, CTAs)</li>
+          <li>Basic automation mindset & segmentation</li>
+          <li>Affiliate content planning</li>
+          <li>Tracking links and performance monitoring</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>YouTube Optimization</h2>
+        <ul class="list">
+          <li>Titles, descriptions & tags (YouTube SEO)</li>
+          <li>Thumbnail direction & CTR basics</li>
+          <li>Channel optimization (playlists, structure)</li>
+          <li>Video upload checklist for better reach</li>
+        </ul>
+      </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      © <span id="y"></span> TP Digital X • Built on GitHub Pages
+    </footer>
+  </div>
+
+  <!-- ================= SCRIPTS ================= -->
+  <script>
+    // year
+    document.getElementById("y").textContent = new Date().getFullYear();
+
+    // hamburger
+    (function () {
+      const nav = document.getElementById("siteNav");
+      const btn = document.getElementById("navToggle");
+
+      if (!nav || !btn) return;
+
+      btn.addEventListener("click", function () {
+        const isOpen = nav.classList.toggle("open");
+        btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        btn.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+      });
+
+      // close when clicking a link
+      nav.addEventListener("click", function (e) {
+        const link = e.target.closest("a");
+        if (!link) return;
+        nav.classList.remove("open");
+        btn.setAttribute("aria-expanded", "false");
+        btn.setAttribute("aria-label", "Open menu");
+      });
+    })();
+  </script>
+
+</body>
+</html>
